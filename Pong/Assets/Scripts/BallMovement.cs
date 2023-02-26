@@ -35,5 +35,27 @@ public class BallMovement : MonoBehaviour
             speedX += Random.Range(0.1f, 0.2f);
             directionX = -directionX;
         }
+
+        if (collision.gameObject.CompareTag("WallLeft") ||
+            collision.gameObject.CompareTag("WallRight"))
+        {
+            ResetPosition();
+        }
+    }
+
+    void ResetPosition()
+    {
+        transform.position = Vector3.zero;
+        directionX = 0;
+        directionY = 0;
+        Invoke(nameof(ResetSpeed), 3f);
+    }
+
+    void ResetSpeed()
+    {
+        speedX = 3;
+        speedY = 3;
+        directionX = 1;
+        directionY = 1;
     }
 }
