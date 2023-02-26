@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(up) &&
             boxY < mainCamera.orthographicSize)
         {
-            transform.position += Vector3.up * Time.deltaTime * speed;
+            transform.position += speed * Time.deltaTime * Vector3.up;
         }
     }
 
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(down) && 
             boxY > -mainCamera.orthographicSize)
         {
-            transform.position -= Vector3.up * Time.deltaTime * speed;
+            transform.position -= speed * Time.deltaTime * Vector3.up;
         }
     }
 
